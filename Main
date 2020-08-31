@@ -1,0 +1,41 @@
+// @author Jiabin Li
+// @Date 08.30.2020
+// 
+
+
+public class AlgorithmTiming {
+    public static void main(String[] args) {
+        Algorithm first = new Algorithm();
+        Stopwatch benchmark1 = new Stopwatch();
+        System.out.println(first.recursiveFibonacci(5));
+        System.out.println(benchmark1.timePassed());
+    }
+
+}
+
+class Stopwatch {
+    private final long start;
+
+    Stopwatch() {
+        this.start = System.currentTimeMillis();
+    }
+
+    public double timePassed() {
+        long currentTime = System.currentTimeMillis();
+        return (start - currentTime) / 1000.0;
+    }
+}
+
+class Algorithm {
+    public static int recursiveFibonacci(int number) {
+        if (number == 1) {
+            return 1;
+        }
+        if (number == 0) {
+            return 0;
+        }
+        else {
+            return (recursiveFibonacci(number - 1) + recursiveFibonacci(number - 2));
+        }
+    }
+}
